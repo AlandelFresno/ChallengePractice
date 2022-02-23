@@ -1,10 +1,11 @@
-import  { MainPage }  from './pages/main/MainPage';
+import { AppRouter } from "./Routers/AppRouter";
+
 
 
 function App() {
   return (
-    
-    <MainPage />
+
+    <AppRouter />    
 
   );
 };
