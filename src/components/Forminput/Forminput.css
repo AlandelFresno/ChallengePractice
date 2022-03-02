@@ -2,6 +2,9 @@
     display: none;
 }
 
-input:invalid ~ .errorMessage{
+input:invalid[focused='true'] ~ .errorMessage{
     display: block;
+}
+input:invalid[focused='true']{
+    border: 1px solid red;
 }

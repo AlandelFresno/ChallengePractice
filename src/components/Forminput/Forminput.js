@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Forminput.css';
 
 
 export const Forminput = (props) => {
 
 
+    const [focused, setFocused] = useState(false);
     const {label, errorMessage, onChange, id, ...inputProps} = props;
+
+
+    const handleFocus = (e) => {
+      setFocused(true);
+    };
+
 
   return (
     <div className= 'flex flex-col mt-4 '>
@@ -13,7 +20,9 @@ export const Forminput = (props) => {
         <input 
             {...inputProps}
             onChange={onChange}
-            className='bg-gray-800 border p-2   text-white border-white rounded mt-4'
+            onBlur={handleFocus}
+            focused={focused.toString()}
+            className='bg-gray-800 border p-2 text-white border-white rounded mt-4'
         />
         <span className='errorMessage text-red-600 pt-1 text-base'>{errorMessage}</span>
     </div>

@@ -20,7 +20,7 @@ export const LoginScreen = () => {
       placeholder: 'email',
       errorMessage: 'It should be a valid email adress',
       label: 'Email',
-      require: true
+      required: true
     },
     {
       id: 2,
@@ -29,21 +29,22 @@ export const LoginScreen = () => {
       placeholder: 'password',
       errorMessage: 'Password should be between 6-30 characters and include at least 1 letter and 1 number (valid special characters: @$!%*#?&)',
       label: 'Password',
-      pattern: '^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9\d@$!%*#?&]{6,30}$',
-      require: true
+      pattern: '^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9@$!%*#?&]{6,30}$',
+      required: true
     }
   ];
   
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(e);
   };
 
   const onChange = (e) => {
     setValues({...values, [e.target.name]: e.target.value});
   };
 
-  console.log(values);
+  // console.log(values);
 
   return (
     <div className='bg-gray-900 '>
@@ -55,7 +56,11 @@ export const LoginScreen = () => {
           onSubmit={handleSubmit}
         >
           {inputs.map((input) => (
-            <Forminput key={input.id} {...input} value={values[input.name]} onChange={onChange}/>
+            <Forminput 
+              key={input.id} {...input}
+              value={values[input.name]} 
+              onChange={onChange}/
+            >
           ))}
           <button className='text-white mt-4 w-full bg-black rounded-md pt-1 pb-1 '>Submit</button>
         </form>
