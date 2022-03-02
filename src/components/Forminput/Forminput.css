@@ -1,0 +1,7 @@
+.errorMessage {
+    display: none;
+}
+
+input:invalid ~ .errorMessage{
+    display: block;
+}
