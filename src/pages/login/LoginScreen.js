@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Forminput } from '../../components/Forminput/Forminput.js';
+import { Forminput } from '../../components/Forminput.js';
 
 export const LoginScreen = () => {
 
@@ -37,7 +37,7 @@ export const LoginScreen = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
+    // console.log(e);
   };
 
   const onChange = (e) => {
@@ -59,10 +59,11 @@ export const LoginScreen = () => {
             <Forminput 
               key={input.id} {...input}
               value={values[input.name]} 
-              onChange={onChange}/
-            >
+              onChange={onChange}
+            />
           ))}
           <button className='text-white mt-4 w-full bg-black rounded-md pt-1 pb-1 '>Submit</button>
+          <span> </span>
         </form>
       </div>
 

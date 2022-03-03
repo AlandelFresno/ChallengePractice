@@ -1,3 +1,5 @@
+
+/*  Forminput */
 .errorMessage {
     display: none;
 }
@@ -7,4 +9,15 @@ input:invalid[focused='true'] ~ .errorMessage{
 }
 input:invalid[focused='true']{
     border: 1px solid red;
+}
+
+
+/* Navbar */
+
+.a_navbar:hover {
+    background-color: rgb(31, 31, 31);
+}
+
+.button_navbar:hover{
+    background-color: rgb(31, 31, 31);
 }
