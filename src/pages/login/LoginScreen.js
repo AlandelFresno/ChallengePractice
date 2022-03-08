@@ -3,6 +3,8 @@ import { Forminput } from '../../components/Forminput.js';
 
 export const LoginScreen = () => {
 
+
+
   const formStyle = {
     width: '280px'
   };
@@ -35,9 +37,10 @@ export const LoginScreen = () => {
   ];
   
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(e);
+    localStorage.setItem('auth', true);
   };
 
   const onChange = (e) => {

@@ -1,4 +1,4 @@
-import { AppRouter } from "./Routers/AppRouter";
+import { AppRouter } from "./Routes/AppRouter";
 
 
 
