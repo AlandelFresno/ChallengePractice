@@ -4,7 +4,7 @@ import  {
   Route,
   Navigate
 } from "react-router-dom";
-import { LoginScreen } from '../pages/login/LoginScreen';
+import { LoginScreen } from '../pages/LoginScreen';
 
 const PublicRoute = () => {
   return (

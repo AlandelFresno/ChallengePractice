@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Forminput } from '../../components/Forminput.js';
+import { useDispatch } from 'react-redux';
+import { Forminput } from '../components/Forminput.js';
+import { logIn } from '../redux/actions/auth.js';
 
 export const LoginScreen = () => {
 
-
+  const dispatch = useDispatch();
 
   const formStyle = {
     width: '280px'
@@ -40,7 +42,8 @@ export const LoginScreen = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem('auth', true);
+    dispatch(logIn());
+    console.log('submited');
   };
 
   const onChange = (e) => {
@@ -53,21 +56,29 @@ export const LoginScreen = () => {
     <div className='bg-gray-900 '>
 
       <div className='flex h-screen items-center justify-center'>
-        
-        <form 
-          style={formStyle}
-          onSubmit={handleSubmit}
-        >
-          {inputs.map((input) => (
-            <Forminput 
+        <div>
+          <form 
+            style={formStyle}
+            onSubmit={handleSubmit}
+          >
+            {inputs.map((input) => (
+              <Forminput 
               key={input.id} {...input}
               value={values[input.name]} 
               onChange={onChange}
-            />
-          ))}
-          <button className='text-white mt-4 w-full bg-black rounded-md pt-1 pb-1 '>Submit</button>
-          <span> </span>
-        </form>
+              />
+              ))}
+            <button className='text-white mt-4 w-full bg-black rounded-md pt-1 pb-1 '>Submit</button>
+            <span> </span>
+          </form>
+
+          <button 
+            onClick={() => {
+              dispatch(logIn());
+            }}
+            className='text-white mt-4 w-full bg-black rounded-md pt-1 pb-1 ' 
+          > Login</button>
+          </div>
       </div>
 
     </div>

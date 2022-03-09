@@ -1,9 +1,12 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { LogOut } from '../redux/actions/auth';
 import './components.css';
 
 export const Navbar = () => {
 
+  const dispatch = useDispatch();
 
   return (
       <div className='bg-black text-white fixed top-0 flex w-screen justify-between items-center'>
@@ -18,7 +21,7 @@ export const Navbar = () => {
           >About</Link>
           <button 
           onClick={() => {
-            localStorage.setItem('auth', false);
+            dispatch(LogOut());
           }}
             className='border-2 border-white rounded-xl a_navbar m-1 ml-4 mt-1 p-1 no-underline text-lg'
           > Logout</button>

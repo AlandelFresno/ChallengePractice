@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import  {   
         BrowserRouter as Router,
 } from "react-router-dom";
@@ -9,15 +10,15 @@ import PublicRoute from "./PublicRoute";
 
 export const AppRouter = () => {
     
-    const isAuth = localStorage.getItem('auth');
+    const token = useSelector(state => state.auth.login);
 
-    console.log(isAuth);
+    console.log(token);
 
     return (
         <Router >
             <Navbar />
             {
-                (isAuth ? (
+                (token ? (
                     <PrivateRoute />
                 ): (
                     <PublicRoute />
