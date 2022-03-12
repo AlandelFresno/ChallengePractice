@@ -43,7 +43,7 @@ export const LoginScreen = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(logIn());
-    console.log('submited');
+    // console.log('submited');
   };
 
   const onChange = (e) => {

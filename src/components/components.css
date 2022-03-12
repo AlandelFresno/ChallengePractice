@@ -21,3 +21,39 @@ input:invalid[focused='true']{
 .button_navbar:hover{
     background-color: rgb(31, 31, 31);
 }
+
+.p_navbar:hover{
+    cursor: default;
+}
+@media (max-width: 330px) {
+    .navbar_container{
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+    }
+    .link_container{
+        flex-wrap: wrap;
+    }
+    .login_button{
+        display: none;
+    }
+}
+@media (max-width: 262px) {
+    .logout_button{
+        display: none;
+    }
+}
+@media (max-width: 175px) {
+    .courses_link{
+        display: none;
+    }
+}
+
+
+/* Searchbar */
+@media (max-width: 600px) {
+    .searchbar{
+        display: none;
+    }
+}

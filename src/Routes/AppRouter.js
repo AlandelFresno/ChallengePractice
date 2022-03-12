@@ -12,11 +12,12 @@ export const AppRouter = () => {
     
     const token = useSelector(state => state.auth.login);
 
-    console.log(token);
+    // console.log(token);
 
     return (
         <Router >
             <Navbar />
+            
             {
                 (token ? (
                     <PrivateRoute />
