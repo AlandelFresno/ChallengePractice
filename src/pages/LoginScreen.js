@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { Forminput } from '../components/Forminput.js';
 import { logIn } from '../redux/actions/auth.js';
 
 export const LoginScreen = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const [values, setValues] = useState({
+    email: '',
+    password: ''
+  });
 
   const formStyle = {
     width: '280px'
   };
 
-  const [values, setValues] = useState({
-    email: '',
-    password: ''
-  });
 
   const inputs = [
     {
@@ -43,6 +45,7 @@ export const LoginScreen = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(logIn());
+    navigate('/home');
     // console.log('submited');
   };
 
@@ -53,8 +56,7 @@ export const LoginScreen = () => {
   // console.log(values);
 
   return (
-    <div className='bg-gray-900 '>
-
+    <div className='bg-gray-900'>
       <div className='flex h-screen items-center justify-center'>
         <div>
           <form 
@@ -75,12 +77,12 @@ export const LoginScreen = () => {
           <button 
             onClick={() => {
               dispatch(logIn());
+              navigate('/home');
             }}
             className='text-white mt-4 w-full bg-black rounded-md pt-1 pb-1 ' 
           > Login</button>
-          </div>
+        </div>
       </div>
-
     </div>
   );
   

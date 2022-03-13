@@ -6,16 +6,18 @@ const initialState = {
 }
 
 export const searchReducer = (state = initialState, action) => {
+
+
     switch (action.type) {
         
         case types.searchObtain:
             return {
-                state
+                ...state,
+                value: action.data
             };
         case types.search:
             return {
-                ...state,
-                login: false
+                state
             };
     
         default:

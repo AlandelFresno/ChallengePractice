@@ -10,16 +10,20 @@ import PublicRoute from "./PublicRoute";
 
 export const AppRouter = () => {
     
-    const token = useSelector(state => state.auth.login);
+    let token = false;
+    const tokenRedux = useSelector(state => state.auth.login);
+    const tokenStore = (localStorage.getItem('auth') === 'true');
 
-    // console.log(token);
+    if (tokenRedux || tokenStore === true) {
+        token = true;
+    };
 
     return (
         <Router >
-            <Navbar />
+            <Navbar token={token}/>
             
             {
-                (token ? (
+                ( token ? (
                     <PrivateRoute />
                 ): (
                     <PublicRoute />
