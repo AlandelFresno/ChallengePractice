@@ -7,6 +7,7 @@ import  {
 import CoursesPage from '../pages/CoursesPage';
 import ErrorPage from '../pages/ErrorPage';
 import { MainPage } from '../pages/MainPage';
+import SearchPage from '../pages/SearchPage';
 
 
 const PrivateRoute = () => {
@@ -16,6 +17,7 @@ const PrivateRoute = () => {
       <Route exact path='/home' element={<MainPage/>}/>
       <Route exact path='/login' element={<Navigate to='/home'/>}/>
       <Route exact path='/courses' element={<CoursesPage />} />
+      <Route exact path='/search' element={<SearchPage/>} />
       <Route path="*" element={<ErrorPage />}/>
     </Routes>
   );

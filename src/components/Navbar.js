@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { LogOut } from '../redux/actions/auth';
@@ -11,6 +11,8 @@ export const Navbar = (token) => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch();
+  const {value} = useSelector(state => state.search);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(Obtain(e.target[0].value));
@@ -32,6 +34,7 @@ export const Navbar = (token) => {
         <button 
           onClick={() => {
             dispatch(LogOut());
+            navigate('/login');
           }}
           className='logout_button border-2 border-white rounded-xl a_navbar m-1 ml-4 mt-1 p-1 no-underline text-lg'
         > Logout</button>
@@ -39,7 +42,7 @@ export const Navbar = (token) => {
          {
            ( token.token ? (
               <form onSubmit={handleSubmit}>
-                <SearchBar />
+                <SearchBar placeholder={value}/>
               </form>
            ): (
               <></>
