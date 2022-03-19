@@ -51,6 +51,7 @@ export const LoginScreen = () => {
 
   const onChange = (e) => {
     setValues({...values, [e.target.name]: e.target.value});
+    console.log(e.target.name)
   };
 
   // console.log(values);
@@ -63,13 +64,17 @@ export const LoginScreen = () => {
             style={formStyle}
             onSubmit={handleSubmit}
           >
-            {inputs.map((input) => (
-              <Forminput 
-              key={input.id} {...input}
-              value={values[input.name]} 
-              onChange={onChange}
-              />
-              ))}
+            {inputs.map((input) => {
+
+              // console.log(input)
+              return (
+                <Forminput 
+                key={input.id} {...input}
+                value={values[input.name]} 
+                onChange={onChange}
+                />
+                )
+            })}
             <button className='text-white mt-4 w-full bg-black rounded-md pt-1 pb-1 '>Submit</button>
             <span> </span>
           </form>

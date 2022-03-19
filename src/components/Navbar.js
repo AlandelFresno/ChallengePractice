@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { LogOut } from '../redux/actions/auth';
-import { Obtain } from '../redux/actions/search';
+import { obtain } from '../redux/actions/search';
 import './components.css';
 import SearchBar from './SearchBar';
 
@@ -13,9 +13,10 @@ export const Navbar = (token) => {
   const dispatch = useDispatch();
   const {value} = useSelector(state => state.search);
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(Obtain(e.target[0].value));
+    dispatch(obtain(e.target[0].value));
     navigate('/search');
   };
 
@@ -41,7 +42,7 @@ export const Navbar = (token) => {
           
          {
            ( token.token ? (
-              <form onSubmit={handleSubmit}>
+              <form className='searchbar' onSubmit={handleSubmit}>
                 <SearchBar placeholder={value}/>
               </form>
            ): (

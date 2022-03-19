@@ -1,14 +1,23 @@
 import { types } from '../types';
 
 
-export const Obtain = (data) => {
+export const obtain = (searchInput) => {
 
 
-
+    console.log(searchInput);
 
     return {
         type : types.searchObtain,
-        data: data
+        searchInput
     };
 };
 
+export const saveData = (data) => {
+
+    console.log(data);
+
+    return {
+        type: types.searchSaveData,
+        saveData: data
+    };
+};

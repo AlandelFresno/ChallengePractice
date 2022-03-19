@@ -13,7 +13,7 @@ const SearchBar = (prop) => {
 
   return (
 
-    <div className='searchbar border border-white rounded-xl'>
+    <div className=' border border-white rounded-xl'>
         <SearchIcon  className=' ml-4'/> 
         <input
             className='bg-gray-900  m-1 ml-4 mt-1 p-1 pl-8 no-underline text-lg ' 

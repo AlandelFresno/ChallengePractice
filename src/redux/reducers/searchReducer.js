@@ -2,7 +2,8 @@ import { types } from '../types';
 
 
 const initialState = {
-    value: ''
+    searchInput: '',
+    saveData: [],
 }
 
 export const searchReducer = (state = initialState, action) => {
@@ -13,11 +14,12 @@ export const searchReducer = (state = initialState, action) => {
         case types.searchObtain:
             return {
                 ...state,
-                value: action.data
+                searchInput: action.searchInput
             };
-        case types.search:
+        case types.searchSaveData:
             return {
-                state
+                ...state,
+                saveData: action.saveData
             };
     
         default:

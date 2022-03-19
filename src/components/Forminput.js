@@ -9,11 +9,11 @@ export const Forminput = (props) => {
     const {label, errorMessage, onChange, id, ...inputProps} = props;
 
 
-    const handleFocus = (e) => {
+    const handleFocus = () => {
       setFocused(true);
     };
 
-
+    // console.log({...inputProps})
   return (
     <div className= 'flex flex-col mt-4 '>
         <label className='text-white'>{label}</label>

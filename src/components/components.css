@@ -25,6 +25,11 @@ input:invalid[focused='true']{
 .p_navbar:hover{
     cursor: default;
 }
+@media (max-width: 650px) {
+    .searchbar{
+        display: none;
+    }
+}
 @media (max-width: 330px) {
     .navbar_container{
         flex-wrap: wrap;
@@ -50,11 +55,14 @@ input:invalid[focused='true']{
     }
 }
 
+/* Dishes */
+
+.image_dis {
+
+}
+.image_dish:hover {
+    cursor: pointer;
+}
 
 /* Searchbar */
-@media (max-width: 600px) {
-    .searchbar{
-        display: none;
-    }
-}
 
