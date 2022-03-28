@@ -19,7 +19,7 @@ export const searchReducer = (state = initialState, action) => {
         case types.searchSaveData:
             return {
                 ...state,
-                saveData: action.saveData
+                data: action.data
             };
     
         default:

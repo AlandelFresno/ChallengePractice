@@ -57,9 +57,6 @@ input:invalid[focused='true']{
 
 /* Dishes */
 
-.image_dis {
-
-}
 .image_dish:hover {
     cursor: pointer;
 }
