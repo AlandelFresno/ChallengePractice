@@ -13,7 +13,6 @@ export const Navbar = (token) => {
   const dispatch = useDispatch();
   const {value} = useSelector(state => state.search);
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(obtain(e.target[0].value));
@@ -36,6 +35,7 @@ export const Navbar = (token) => {
           onClick={() => {
             dispatch(LogOut());
             navigate('/login');
+            window.location.reload(false);
           }}
           className='logout_button border-2 border-white rounded-xl a_navbar m-1 ml-4 mt-1 p-1 no-underline text-lg'
         > Logout</button>

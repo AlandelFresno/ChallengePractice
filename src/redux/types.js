@@ -4,6 +4,8 @@ export const types = {
     authLogOut: '[AUTH] Logout',
 
     searchObtain: '[SEARCH] Obtain',
-    searchSaveData: '[SEARCH] SaveData'
+    searchSaveData: '[SEARCH] SaveData',
 
+    menuData: '[MENU] Data',
+    updateMenu: '[MENU] Update'
 };
