@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 import { LogOut } from '../redux/actions/auth';
 import { obtain } from '../redux/actions/search';
@@ -9,8 +9,9 @@ import SearchBar from './SearchBar';
 
 export const Navbar = (token) => {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
   const {value} = useSelector(state => state.search);
 
   const handleSubmit = (e) => {
@@ -19,18 +20,37 @@ export const Navbar = (token) => {
     navigate('/search');
   };
 
+  const handleCondition = () => {
+
+    if ( location.pathname === '/search') {
+      return (<></>);
+    } else if ( token.token ) {
+      return (
+        <form className='searchbar pt-1 pl-4' onSubmit={handleSubmit}>
+          <SearchBar placeholder={value}/>
+        </form>
+      );
+    } else {
+      return ( <></> );
+    };
+  };
+  
+  console.log(location);
+
+
   return (
-    <div className='navbar_container bg-black text-white fixed top-0 flex w-screen justify-between items-center'>
+    <div 
+      className='navbar_container bg-black 
+                text-white fixed top-0 flex w-screen 
+                justify-between items-center
+                pb-1'
+    >
 
       <div className='link_container flex item-center'>
         <Link 
           to='/'
           className='border-2 border-white rounded-xl a_navbar m-1 ml-4 mt-1 p-1 no-underline text-lg'
         >Home</Link>
-        <Link 
-          to='/courses' 
-          className='courses_link border-2 border-white rounded-xl a_navbar m-1 ml-4 mt-1 p-1 no-underline text-lg'
-        >Courses</Link>
         <button 
           onClick={() => {
             dispatch(LogOut());
@@ -41,13 +61,14 @@ export const Navbar = (token) => {
         > Logout</button>
           
          {
-           ( token.token ? (
-              <form className='searchbar' onSubmit={handleSubmit}>
-                <SearchBar placeholder={value}/>
-              </form>
-           ): (
-              <></>
-           ))
+          handleCondition()
+          //  ( token.token ? (
+          //     <form className='searchbar pt-1' onSubmit={handleSubmit}>
+          //       <SearchBar placeholder={value}/>
+          //     </form>
+          //  ): (
+          //     <></>
+          //  ))
          } 
       </div>   
       <div>

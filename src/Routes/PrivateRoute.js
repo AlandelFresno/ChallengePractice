@@ -18,7 +18,6 @@ const PrivateRoute = () => {
       <Route exact path='/' element={<Navigate to='/home'/>}/>
       <Route exact path='/home' element={<MainPage/>}/>
       <Route exact path='/login' element={<Navigate to='/home'/>}/>
-      <Route exact path='/courses' element={<CoursesPage />} />
       <Route exact path='/search' element={<SearchPage/>} />
       <Route path='/search/:id' element={<DishDetailsPage/>} />
       <Route path="*" element={<ErrorPage />}/>
